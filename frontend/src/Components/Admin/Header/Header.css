@@ -1,0 +1,16 @@
+.adminlabel{
+    font-size: 15px;
+    color: blueviolet;
+}
+
+.LogoutBtn{
+    margin-right: 15px;
+}
+
+.adminHeader{
+    top: 0;
+    position: fixed;
+    z-index: 6000;
+    width: 100%;
+
+}
