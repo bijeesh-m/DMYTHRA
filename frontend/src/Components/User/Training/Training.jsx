@@ -28,18 +28,6 @@ function Training() {
         setSelectedTraining(videoKey);
     };
 
-    const opts = {
-        height: "390",
-        width: "465",
-        playerVars: {
-            autoplay: 0,
-        },
-    };
-
-    const onReady = (event) => {
-        event.target.pauseVideo();
-    };
-
     return (
         <div className="mainDivOfTraining">
             <h4 className="trainingHeading">Training Class</h4>
@@ -50,11 +38,10 @@ function Training() {
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
                         key={value._id}
-                        onClick={() => selectTraining(value.videoLink)}
                     >
                         <h5> Name : {value.videoName}</h5>
                         <p> Description : {value.videoDescription}</p>
-                        <p>Click this container to view</p>
+                        <button className=" bg-success px-2 py-2" onClick={() => selectTraining(value.videoLink)}>View video</button>
                         <p>Posted on :{new Date(value.date).toLocaleDateString("en-GB")}</p>
                     </div>
                 ))
@@ -84,21 +71,15 @@ function Training() {
                             ></button>
                         </div>
                         <div className="modal-body">
-                            {/* <YouTube
-                videoId={selectedTraining}
-                opts={opts}
-                onReady={onReady}
-              /> */}
-
                             <iframe
                                 width="100%"
                                 height="360"
-                                src="https://www.youtube.com/embed/cvxaNIb7x5E"
-                                title="RORONOA ZORO CHARACTER REVIEW IN MALAYALAM | ANIME | CINEMATE MALAYALAM"
+                                src={selectedTraining}
+                                title="Training class"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 referrerpolicy="strict-origin-when-cross-origin"
-                                allowfullscreen
+                                allowFullScreen
                             ></iframe>
                         </div>
                     </div>
