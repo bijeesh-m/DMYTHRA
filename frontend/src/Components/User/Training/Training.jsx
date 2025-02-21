@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Training.css";
-import YouTube from "react-youtube";
 import { fetchTrainingDetails } from "../../../Services/userApi";
 
 function Training() {
@@ -41,7 +40,9 @@ function Training() {
                     >
                         <h5> Name : {value.videoName}</h5>
                         <p> Description : {value.videoDescription}</p>
-                        <button className=" bg-success px-2 py-2" onClick={() => selectTraining(value.videoLink)}>View video</button>
+                        <button className=" bg-success px-2 py-2" onClick={() => selectTraining(value.videoLink)}>
+                            View video
+                        </button>
                         <p>Posted on :{new Date(value.date).toLocaleDateString("en-GB")}</p>
                     </div>
                 ))
