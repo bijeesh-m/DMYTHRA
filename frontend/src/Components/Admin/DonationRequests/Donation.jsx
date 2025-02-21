@@ -37,7 +37,7 @@ function Donation() {
             <h6 className="my-4">{value.requestDescription}</h6>
             <div className="lastline">
               <p className="d-flex">
-                Contact : <span>{value.ownerId.email}</span>
+                Contact : <span>{value.email}</span>
               </p>
 
               {value.Verified ? (

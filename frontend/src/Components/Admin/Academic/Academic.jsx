@@ -18,6 +18,7 @@ function Academic() {
         values: initialValues,
       });
     } else {
+      console.log(data);
       toast.error(data.message);
     }
   };

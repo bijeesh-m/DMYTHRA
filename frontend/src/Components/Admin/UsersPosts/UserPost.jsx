@@ -22,7 +22,7 @@ function UserPost() {
             <h4>{value.postCaption}</h4>
             <h6 className="my-4">{}</h6>
             <p>
-              Owner : <span>{value.ownerId.userName}</span>
+              Owner : <span>{value.userName}</span>
             </p>
           </div>
           <img

@@ -12,8 +12,8 @@ const path = require("path");
 
 require("dotenv").config();
 
-const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRETE_KEY, {
+const createToken = (user) => {
+    return jwt.sign({id:user._id, username:user.userName }, process.env.JWT_SECRETE_KEY, {
         expiresIn: maxAge,
     });
 };
@@ -31,7 +31,9 @@ module.exports.signup = async (req, res, next) => {
             password: password,
         });
         const userDetails = await newUser.save();
-        const token = createToken(userModel._id);
+
+
+        const token = createToken(userDetails._id);
         return res.json({
             message: "Account created successfully",
             status: true,
@@ -51,7 +53,7 @@ module.exports.login = async (req, res, next) => {
         if (user) {
             const passwordMatch = await bcrypt.compare(loginPassword, user.password);
             if (passwordMatch) {
-                const token = createToken(user._id);
+                const token = createToken(user);
                 return res.status(200).json({
                     user,
                     message: "Authentication successful",
@@ -169,10 +171,12 @@ module.exports.postSkill = async (req, res, next) => {
         };
 
         console.log(extractImageUrl);
+
+        console.log(req.user);
         const newUserPosts = new userPostModel({
             postCaption: req.body.caption,
             imageUrl: extractImageUrl(req.file.path),
-            ownerId: req.body.userId,
+            ownerId: req.user._id,
         });
         await newUserPosts.save();
         res.json({ message: "Successfully submitted", status: true });

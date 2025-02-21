@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export { createSlice } from "@reduxjs/toolkit";
 
+
+
 export const adminDetailsSlice = createSlice({
     name: "Admin",
     initialState: {},
