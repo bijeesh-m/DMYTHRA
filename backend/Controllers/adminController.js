@@ -175,11 +175,7 @@ module.exports.addAnnouncement = async (req, res, next) => {
 
 module.exports.fetchDonation = async (req, res, next) => {
   try {
-    const donationDetails = await donationModel.find({}).populate({
-      path: "ownerId",
-      model: "user",
-      select: "username email",
-    });
+    const donationDetails = await donationModel.find().populate("ownerId");
     return res.json({
       message: "Donation details fetched",
       data: donationDetails,
