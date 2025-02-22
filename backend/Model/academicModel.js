@@ -13,10 +13,6 @@ const academicSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  videoKey: {
-    type: String,
-    required: true,
-  },
   date: {
     type: Date,
     default: Date.now,
