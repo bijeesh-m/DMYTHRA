@@ -9,6 +9,7 @@ import AcademicPage from "../Pages/User/AcademicPage";
 import DonationPage from "../Pages/User/DonationPage";
 import NotFoundPage from "../Pages/User/NotFoundPage";
 import UserUrlAuth from "../Hooks/UserUrlAuth";
+import Profile from "../Pages/User/Profile";
 function UserRouters() {
   return (
     <div>
@@ -22,6 +23,7 @@ function UserRouters() {
           <Route path="/training" element={<TrainingPage />} />
           <Route path="/academic" element={<AcademicPage />} />
           <Route path="/donation" element={<DonationPage />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>

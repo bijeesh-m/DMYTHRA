@@ -36,11 +36,12 @@ function Academic() {
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
                         key={value._id}
-                        onClick={() => selectTraining(value.videoLink)}
                     >
                         <h5> Name : {value.videoName}</h5>
                         <p> Description : {value.videoDescription}</p>
-                        <p>Click this container to view</p>
+                        <button className=" bg-success px-2 py-2" onClick={() => selectTraining(value.videoLink)}>
+                            View video
+                        </button>{" "}
                         <p>Posted on :{new Date(value.date).toLocaleDateString("en-GB")}</p>
                     </div>
                 ))
